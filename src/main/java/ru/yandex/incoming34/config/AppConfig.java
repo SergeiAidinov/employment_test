@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "ru.yandex.incoming34.controller")
+@ComponentScan(basePackages = "ru.yandex.incoming34")
 public class AppConfig implements WebMvcConfigurer {
 
     @Override
