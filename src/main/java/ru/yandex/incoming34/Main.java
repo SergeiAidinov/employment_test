@@ -6,10 +6,19 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.servlet.DispatcherServlet;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 
 public class Main {
     public static void main(String[] args) throws LifecycleException {
-        int port = 8080;
+        Properties props = new Properties();
+        try (FileInputStream fis = new FileInputStream("src/main/resources/application.properties")) {
+            props.load(fis);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        int port = Integer.parseInt(props.getProperty("server.port", "8080"));
         Tomcat tomcat = new Tomcat();
         tomcat.setPort(port);
         tomcat.getConnector().setEnableLookups(true);
