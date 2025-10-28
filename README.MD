@@ -11,7 +11,7 @@
 1. Клонируем репозиторий;
 2. В папке, куда был склонирован репозиторий, последовательно выполняем следующие команды:
 
-<p style="margin-left: 80px;">1) mvn clean</p>
+&nbsp;&nbsp; 1) mvn clean</p>
 <p style="margin-left: 80px;">2) mvn package</p>
 <p style="margin-left: 80px;">3) cd target</p>
 <p style="margin-left: 80px;">4) java -jar employment_test-1.0-SNAPSHOT-jar-with-dependencies.jar</p>
