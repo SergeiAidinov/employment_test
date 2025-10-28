@@ -1,15 +1,11 @@
 package ru.yandex.incoming34.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 import ru.yandex.incoming34.dto.Query;
 import ru.yandex.incoming34.service.Service;
 
-@org.springframework.stereotype.Controller
+@RestController
 public class Controller {
 
     private final Service service;
@@ -19,10 +15,19 @@ public class Controller {
     }
 
     @PostMapping(value = "/load_file")
+    @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<String> loadFile(@RequestBody Query query) {
-        return ResponseEntity
-                .ok()
-                .header("Content-Type", "text/plain")
-                .body(service.handleFile(query.getFilePath(), query.getOrder()));
+        ResponseEntity<String> response;
+        try{
+            response = ResponseEntity
+                    .ok()
+                    .header("Content-Type", "text/plain")
+                    .body(service.handleFile(query.getFilePath(), query.getOrder()));
+        } catch (IllegalArgumentException ex){
+            return ResponseEntity
+            .ok()
+            .body(ex.getMessage());
+        }
+        return response;
     }
 }
