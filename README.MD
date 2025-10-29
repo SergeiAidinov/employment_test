@@ -1,5 +1,5 @@
 ![Java](https://img.shields.io/badge/Java-17-blue?logo=openjdk)
-![Spring Framework](https://img.shields.io/badge/Spring_Framework-6.x-brightgreen?logo=spring)
+![Spring Framework](https://img.shields.io/badge/Spring_Framework-5.x-brightgreen?logo=spring)
 ![Maven](https://img.shields.io/badge/Maven-Build-orange?logo=apachemaven)
 ![Lombok](https://img.shields.io/badge/Lombok-Enabled-red?logo=java)
 ![Bash](https://img.shields.io/badge/Bash-Scripting-4EAA25?logo=gnubash&logoColor=white)
